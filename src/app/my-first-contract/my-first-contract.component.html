@@ -1,0 +1,19 @@
+<div class="mb-4">
+  <h4 class="mb-3">
+    2. Get the value
+  </h4>
+  <div class="mb-3">
+    <label for="blockchain-get-input">Value is</label>
+    <input type="text" class="form-control"
+           id="blockchain-get-input"
+           aria-describedby="blockchain-get-help"
+           [value]="value | async"
+           disabled/>
+    <small id="blockchain-get-help" class="form-text text-muted">
+      Click the button to get the value.
+    </small>
+  </div>
+  <button (click)="getValue()" class="btn btn-primary">
+    Get Value
+  </button>
+</div>

@@ -10,6 +10,15 @@ import { EMBARKJS } from './app.tokens';
       <div>
         <ul class="nav nav-tabs">
           <li class="nav-item">
+            <a routerLink="/my-first-contract" routerLinkActive="active" class="nav-link">
+              My First Contract
+              <span
+                [class]="getServiceStatusClass(true)"
+                style="width: 12px; height: 12px;"
+              ></span>
+            </a>
+          </li>
+          <li class="nav-item">
             <a routerLink="/blockchain" routerLinkActive="active" class="nav-link">
               Blockchain
               <span
