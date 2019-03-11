@@ -10,6 +10,7 @@ import {from, Observable} from 'rxjs';
 export class MyFirstContractComponent {
 
   value: Observable<string>;
+  whoAmI: Observable<string>;
 
   constructor(
     @Inject(myFirstContractToken) readonly myFirstContract: EmbarkContracts.MyFirstContract,
@@ -17,6 +18,10 @@ export class MyFirstContractComponent {
 
   getValue(): void {
     this.value = from(this.myFirstContract.methods.get().call());
+  }
+
+  getWhoAmI(): void {
+    this.whoAmI = from(this.myFirstContract.methods.whoAmI().call());
   }
 
 }

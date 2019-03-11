@@ -25,6 +25,7 @@ declare namespace EmbarkContracts {
   interface MyFirstContract {
     methods: {
       get(): Web3.TransactionObject<string>,
+      whoAmI(): Web3.TransactionObject<string>
     };
   }
 }

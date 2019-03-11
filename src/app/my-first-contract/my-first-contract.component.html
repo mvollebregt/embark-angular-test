@@ -1,6 +1,6 @@
 <div class="mb-4">
   <h4 class="mb-3">
-    2. Get the value
+    1. Get the value
   </h4>
   <div class="mb-3">
     <label for="blockchain-get-input">Value is</label>
@@ -15,5 +15,25 @@
   </div>
   <button (click)="getValue()" class="btn btn-primary">
     Get Value
+  </button>
+</div>
+
+<div class="mb-4">
+  <h4 class="mb-3">
+    2. Who am I?
+  </h4>
+  <div class="mb-3">
+    <label for="blockchain-get-input">Who am i?</label>
+    <input type="text" class="form-control"
+           id="blockchain-get-input"
+           aria-describedby="blockchain-get-help"
+           [value]="whoAmI | async"
+           disabled/>
+    <small id="blockchain-get-help" class="form-text text-muted">
+      Click the button to find out who you are.
+    </small>
+  </div>
+  <button (click)="getWhoAmI()" class="btn btn-primary">
+    Who am I?
   </button>
 </div>
