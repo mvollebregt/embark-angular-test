@@ -1,6 +1,6 @@
-import { Component, Inject } from '@angular/core';
+import {Component, Inject} from '@angular/core';
 
-import {myFirstContractToken, SIMPLE_STORAGE} from '../contracts.tokens';
+import {myFirstContractToken} from '../contracts.tokens';
 import {from, Observable} from 'rxjs';
 
 @Component({
@@ -14,6 +14,7 @@ export class MyFirstContractComponent {
 
   constructor(
     @Inject(myFirstContractToken) readonly myFirstContract: EmbarkContracts.MyFirstContract,
+    // private accountService: AccountService
   ) { }
 
   getValue(): void {
@@ -21,7 +22,12 @@ export class MyFirstContractComponent {
   }
 
   getWhoAmI(): void {
-    this.whoAmI = from(this.myFirstContract.methods.whoAmI().call());
+    web3.eth.getAccounts().then(accounts => {
+      this.whoAmI = from(this.myFirstContract.methods.whoAmI().call({from: accounts[0]}));
+    });
+    // this.accountService.getAccount().pipe(take(1)).subscribe(account => {
+    //   this.whoAmI = from(this.myFirstContract.methods.whoAmI().call({from: account}));
+    // });
   }
 
 }
